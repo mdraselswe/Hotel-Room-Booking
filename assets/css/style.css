@@ -1,0 +1,422 @@
+ @import url('https://fonts.googleapis.com/css?family=Droid+Serif');
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+
+}
+body{
+  font-family: 'Lora', serif;
+	font-size: 14px;
+	line-height: 16px;
+  color: #000;
+  background: url(/assets/images/101bubble2.gif) fixed;
+}
+.templete{
+  width: 960px;
+  margin: auto;
+}
+.clear{
+  overflow: hidden; /*fix div overflow*/
+}
+
+.headersection {
+	background-color: rgb(48, 10, 36);
+	color: #fff;
+	border-bottom: 5px solid yellow;
+}
+.logo{
+  width: 500px;
+  float: left;
+
+}
+.logo img {
+	width: 71px;
+	float: left;
+	padding: 10px;
+}
+.logo h2 {
+	padding: 5px;
+	margin-top: 10px;
+	font-size: 25px;
+	color: #fff;
+	text-shadow: 2px 2px 0px #000;
+}
+.loginsection {
+	float: right;
+
+}
+.loginsection tr{
+
+}
+.loginsection tr td{
+
+}
+.loginsection tr td input {
+	width: 120px;
+	height: 15px;
+}
+.social img {
+	width: 43px;
+	float: right;
+	padding: 8px;
+}
+.social{
+  width: 300px;
+  float: right;
+
+}
+.social img {
+	width: 43px;
+	float: right;
+	padding: 8px;
+}
+.navigationsection {
+	height: 50px;
+	background: rgb(145, 20, 51);
+}
+.navigationsection ul{
+  list-style: none;
+}
+.navigationsection ul li {
+	float: left;
+	margin: 11px;
+	padding: 5px;
+	font-weight: bold;
+	font-size: 21px;
+}
+.navigationsection ul li a {
+	text-decoration: none;
+	color: #fff;
+	padding: 20px;
+}
+.navigationsection ul li a:hover, #active {
+	background: yellow;
+	color: #000;
+}
+.slidersection {
+
+  margin-bottom: 10px;
+
+}
+.datesection{
+  margin-bottom: 10px;
+}
+
+/*contentsection start*/
+
+.contentsection {
+}
+
+.contentheading {
+	background: rgb(50, 66, 46);
+	height: 50px;
+}
+
+.contentheading ul{
+
+}
+.contentheading ul li {
+	list-style: none;
+	float: left;
+	font-weight: bold;
+	color: yellow;
+	font-size: 13px;
+	height: 20px;
+	width: 162px;
+	padding: 5px;
+	margin: 10px 10px 10px 10px;
+	text-align: center;
+}
+.mainsection {
+	background: rgb(172, 172, 117);
+	margin-bottom: 10px;
+	height: 210px;
+}
+.room-type {
+	float: left;
+	width: 170px;
+	margin: 10px;
+	padding: 5px;
+	border-right: 2px dashed #000;
+	height: 180px;
+}
+
+.room-type img {
+	width: 150px;
+	height: 130px;
+	margin-bottom: 10px;
+	padding: 5px;
+	background: #ddd;
+	border: 2px solid #000;
+}
+.room-type h2 {
+	font-weight: bold;
+	font-size: 25px;
+	text-align: center;
+	color: rgb(99, 0, 104);
+	text-shadow: 2px 2px 3px #fff;
+}
+.condition {
+	float: left;
+	width: 155px;
+	margin: 10px;
+	padding: 10px;
+	line-height: 35px;
+	height: 170px;
+	border-right: 2px dashed #000;
+}
+.condition ul{
+
+}
+.condition ul li{
+
+}
+.maximum-occupancy {
+	float: left;
+	width: 145px;
+	margin: 10px;
+	padding: 10px;
+	height: 170px;
+	border-right: 2px dashed #000;
+}
+.maximum-occupancy p {
+	text-align: center;
+}
+
+.total-price {
+	float: left;
+	width: 145px;
+	margin: 10px;
+	padding: 10px;
+	border-right: 2px dashed #000;
+	height: 170px;
+}
+.total-price p {
+	text-align: center;
+}
+.nr-rooms {
+	float: left;
+	width: 145px;
+	margin: 10px;
+	padding: 10px;
+	height: 170px;
+}
+button {
+	background: yellow;
+	color: #000;
+	border: 1px solid #000;
+	margin: 10px;
+	padding: 10px;
+	font-weight: bold;
+}
+button:hover {
+	background: rgb(32, 33, 35);
+	color: #fff;
+	cursor: pointer;
+  border: 1px solid #fff;
+}
+/*
+bookingform.php start
+*/
+
+.formsection {
+	height: 550px;
+	background: rgb(172, 172, 117);
+	margin-bottom: 10px;
+}
+.formsection h2 {
+	font-size: 25px;
+	margin: 10px;
+	padding: 5px;
+	color: rgb(99, 0, 104);
+	text-shadow: 2px 2px 3px #fff;
+}
+.guestinfo {
+	margin: 10px 0px 0px 60px;
+	padding: 10px 0px 0px 10px;
+}
+.guestinfo tr{
+
+}
+
+.guestinfo tr td {
+	padding: 10px;
+	font-weight: bold;
+	font-size: 15px;
+}
+.guestinfo tr td input {
+	height: 25px;
+	width: 385px;
+	border: 1px solid #000;
+}
+textarea {
+	width: 385px;
+	height: 150px;
+	border: 1px solid #000;
+}
+
+/*
+bookingno.php start
+*/
+
+
+.registered{
+  height: 350px;
+	background: #ddd;
+	margin-bottom: 10px;
+  text-align: center;
+
+}
+.registered img {
+	margin: 10px 10px 0px 10px;
+	padding: 10px 10px 5px 10px;
+}
+.registered h2 {
+	font-size: 25px;
+	color: blue;
+}
+
+.registered h3 {
+	margin: 10px;
+	padding: 10px;
+	line-height: 25px;
+	font-size: 15px;
+}
+
+.registered h4 {
+	margin: 10px;
+	padding: 10px;
+	font-size: 20px;
+	color: red;
+	text-shadow: 2px 2px 2px #fff;
+	font-size: 20px;
+}
+
+
+
+/*
+about.php start*/
+
+.servicesection {
+	background: rgb(172, 172, 117);
+	margin-bottom: 10px;
+	height: 389px;
+}
+.facilities {
+	margin: 10px;
+	padding: 10px;
+	width: 440px;
+	float: left;
+	border-right: 2px dashed #000;
+}
+.facilities:last-child{
+  border-right: none;
+}
+.facilities h2 {
+	text-shadow: 2px 2px 3px #000;
+	font-size: 25px;
+  color:  rgb(99, 0, 104);
+  text-shadow: 2px 2px 3px #fff;
+}
+.mainfacilities {
+	margin: 10px 0px 0px 8px;
+	padding: 5px 0px 0px 5px;
+}
+.mainfacilities tr{
+
+}
+.mainfacilities tr td {
+	padding: 5px 0px 5px 18px;
+}
+.fontweight{
+  font-weight: bold;
+}
+.policies {
+	float: right;
+	width: 410px;
+}
+
+/*bookingdetails start */
+
+.bookingdetails{
+  height: 300px;
+	background: rgb(172, 172, 117);
+	margin-bottom: 10px;
+}
+.bookingdetails h2{
+  font-size: 25px;
+	margin: 10px;
+	padding: 5px;
+	color: rgb(99, 0, 104);
+	text-shadow: 2px 2px 3px #fff;
+}
+
+.bookingsummery{
+  margin: 10px 0px 0px 60px;
+	padding: 10px 0px 0px 10px;
+}
+.bookingsummery tr{
+
+}
+.bookingsummery tr td{
+  padding: 10px;
+  font-weight: bold;
+	font-size: 15px;
+
+}
+
+/* Admin addcustomer start */
+
+.adminformsection{
+  height: 800px;
+	background: rgb(172, 172, 117);
+	margin-bottom: 10px;
+}
+.adminformsection h2{
+  font-size: 25px;
+	margin: 10px;
+	padding: 5px;
+	color: rgb(99, 0, 104);
+	text-shadow: 2px 2px 3px #fff;
+}
+
+/*adminpanel.php start */
+
+.viewguestsection{
+  height: 500px;
+  background: rgb(172, 172, 117);
+  margin-bottom: 10px;
+}
+.viewguestsection h2{
+  font-size: 25px;
+  margin: 10px;
+  padding: 5px;
+  color: rgb(99, 0, 104);
+  text-shadow: 2px 2px 3px #fff;
+}
+.buttonsection {
+	width: 500px;
+	float: left;
+}
+.buttonsection tr{
+
+}
+.buttonsection tr td{
+
+}
+.searchsection {
+	width: 250px;
+	float: right;
+}
+.searchsection tr{
+
+}
+.searchsection tr td{
+
+}
+.searchsection tr td input {
+	width: 135px;
+	height: 25px;
+}
