@@ -46,7 +46,7 @@
             </tr>
             <tr>
                 <td></td>
-                <td > <a href="#"> <button type="submit"> Confirm </button> </a></td>
+                <td > <a href="/view/adminpanel.php"> <button type="submit"> Confirm </button> </a></td>
             </tr>
 
       </table>
