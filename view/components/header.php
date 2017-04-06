@@ -14,14 +14,7 @@
           <h2>Hotel Room Booking System</h2>
           <p>Our  Website description</p>
         </div>
-        <div class="loginsection">
-            <table>
-                <tr>
-                  <td><input type="text" name="uname" placeholder="User Name"></td>
-                  <td><input type="password" name="pass" placeholder="Password"></td>
-                </tr>
-            </table>
-        </div>
+        
         <div class="social">
           <a href="http://www.facebook.com"> <img src="/assets/images/Social/facebook" alt="Facebook"></a>
           <a href="https://www.twitter.com"><img src="/assets/images/Social/twitter" alt ="Twitter"></a>
