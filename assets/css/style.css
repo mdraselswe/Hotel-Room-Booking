@@ -43,20 +43,7 @@ body{
 	color: #fff;
 	text-shadow: 2px 2px 0px #000;
 }
-.loginsection {
-	float: right;
 
-}
-.loginsection tr{
-
-}
-.loginsection tr td{
-
-}
-.loginsection tr td input {
-	width: 120px;
-	height: 15px;
-}
 .social img {
 	width: 43px;
 	float: right;
