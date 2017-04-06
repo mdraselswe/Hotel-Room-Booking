@@ -407,3 +407,31 @@ about.php start*/
 	width: 135px;
 	height: 25px;
 }
+
+/* adminlogin.php start */
+.loginsection{
+  height: 500px;
+  background: rgb(172, 172, 117);
+  margin-bottom: 10px;
+}
+.loginsection h2{
+  font-size: 25px;
+  margin: 10px;
+  padding: 5px;
+  color: rgb(99, 0, 104);
+  text-shadow: 2px 2px 3px #fff;
+}
+.adminlogin{
+  line-height: 45px;
+  margin: 10px;
+  padding: 10px;
+}
+.adminlogin tr td{
+  font-weight: bold;
+  padding-left: 30px;
+}
+.adminlogin tr td input{
+  height: 25px;
+  width: 385px;
+  border: 1px solid #000;
+}
