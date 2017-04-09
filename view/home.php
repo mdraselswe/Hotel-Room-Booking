@@ -4,18 +4,7 @@
 <body>
 
   <div class="slidersection templete clear">
-      <div id="slider">
-        <a href="#"><img src="/assets/images/slideshow/pic1.jpg" alt="nature 1"  /></a>
-        <a href="#"><img src="/assets/images/slideshow/pic2.jpg" alt="nature 2"  /></a>
-        <a href="#"><img src="/assets/images/slideshow/pic3.jpg" alt="nature 3" /></a>
-        <a href="#"><img src="/assets/images/slideshow/pic4.jpg" alt="nature 4"  /></a>
-        <a href="#"><img src="/assets/images/slideshow/pic5.jpg" alt="nature 5" /></a>
-        <a href="#"><img src="/assets/images/slideshow/pic6.jpg" alt="nature 6"  /></a>
-        <a href="#"><img src="/assets/images/slideshow/pic7.jpg" alt="nature 7"  /></a>
-        <a href="#"><img src="/assets/images/slideshow/pic8.jpg" alt="nature 8"  /></a>
-        <a href="#"><img src="/assets/images/slideshow/pic9.jpg" alt="nature 9"  /></a>
-        <a href="#"><img src="/assets/images/slideshow/pic10.jpg" alt="nature 10"  /></a>
-      </div>
+      <?php require 'components/slider.php'; ?>
   </div>
 
   <div class="contentsection templete clear">
@@ -29,11 +18,11 @@
         </ul>
       </div>
 
-      <form method="GET" action="/view/booking-check-form.php">
+      <?php foreach ($roomCategory as $room) : ?>
         <div class="mainsection">
             <div class="room-type">
                 <img src="/assets/images/room-type">
-                <h2>Standard</h2>
+                <h2><?= $room['roomType']; ?></h2>
             </div>
 
             <div class="condition">
@@ -50,67 +39,15 @@
 
             <div class="total-price">
                 <p>Price</p>
+                <p><?= $room['price']; ?></p>
             </div>
 
             <div class="nr-rooms">
-                <button type="submit">Confirm</button>
+                <a href="/view/booking-check-form.php"><button type="submit">Confirm</button></a>
             </div>
         </div>
+      <?php endforeach ?>
 
-        <div class="mainsection">
-            <div class="room-type">
-                <img src="/assets/images/room-type">
-                <h2>Delux</h2>
-            </div>
-
-            <div class="condition">
-                <ul>
-                    <li>1 King-Size Bad</li>
-                    <li>Breakfast included</li>
-                    <li>Cancellation policies</li>
-                </ul>
-            </div>
-
-            <div class="maximum-occupancy">
-                <p>2 Adult + 1 child</p>
-            </div>
-
-            <div class="total-price">
-                <p>Price</p>
-            </div>
-
-            <div class="nr-rooms">
-                <button type="submit">Confirm</button>
-            </div>
-        </div>
-
-        <div class="mainsection">
-            <div class="room-type">
-                <img src="/assets/images/room-type">
-                <h2>Luxury</h2>
-            </div>
-
-            <div class="condition">
-                <ul>
-                    <li>2 King-Size Bad</li>
-                    <li>Breakfast included</li>
-                    <li>Cancellation policies</li>
-                </ul>
-            </div>
-
-            <div class="maximum-occupancy">
-                <p>4 Adult + 2 child </p>
-            </div>
-
-            <div class="total-price">
-                <p>Price</p>
-            </div>
-
-            <div class="nr-rooms">
-                <button type="submit" >Confirm</button>
-            </div>
-        </div>
-      </form>
   </div>
 
 </body>

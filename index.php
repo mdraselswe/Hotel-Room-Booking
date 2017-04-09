@@ -2,9 +2,11 @@
 
 	require 'core/bootstrap.php';
 
-    $date = $pdo->prepare("SELECT * FROM roomCategory");
-    $date->execute();
+    // $date = $pdo->prepare("SELECT * FROM roomCategory");
+    // $date->execute();
+    //
+    // dd($date->fetchAll());
 
-    dd($date->fetchAll());
 
-    require 'view/home.php';
+
+    require 'controller/home.controller.php';
