@@ -2,11 +2,5 @@
 
 	require 'core/bootstrap.php';
 
-    // $date = $pdo->prepare("SELECT * FROM roomCategory");
-    // $date->execute();
-    //
-    // dd($date->fetchAll());
-
-
-
-    require 'controller/home.controller.php';
+	$router = Router::load('routes.php');
+	require $router->direct(Request::uri(), Request::method());

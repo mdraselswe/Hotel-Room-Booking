@@ -2,7 +2,7 @@
 <?php require 'components/header.php'; ?>
 <?php require 'components/nav.php'; ?>
 
-<body>
+
 
   <div class="formsection  templete clear">
 
@@ -61,5 +61,5 @@
   </form>
 
 </div>
-</body>
+
 <?php require 'components/footer.php'; ?>
