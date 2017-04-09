@@ -43,7 +43,7 @@
         <table class="mainfacilities">
           <tr>
             <td class="fontweight">  Check-In  </td>
-            <td> From 12:00 hours ID Required </td>
+            <td> From 12:00 hours</td>
           </tr>
           <tr>
             <td class="fontweight"> Check-Out </td>

@@ -3,6 +3,7 @@
 
     $config = require 'config.php';
     require 'database/connection.php';
+    require 'function.php';
 
     $pdo = Connection::make($config['database']);
 
