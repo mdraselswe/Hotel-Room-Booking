@@ -8,6 +8,8 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
     <script src="assets/js/jquery.nivo.slider.js" type="text/javascript"></script>
+    <!-- <script src="assets/js/semantic-calender.js" type="text/javascript"></script> -->
+    <script src="assets/js/main.js" type="text/javascript"></script>
 
     <script type="text/javascript">
     $(window).load(function() {
