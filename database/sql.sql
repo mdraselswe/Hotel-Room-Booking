@@ -2,7 +2,7 @@ CREATE TABLE roomCategory(
 	id INT NOT NULL AUTO_INCREMENT,
     roomType VARCHAR(20) NOT NULL,
     price INT NOT NULL,
-PRIMARY KEY(id)
+	PRIMARY KEY(id)
 
 );
 
@@ -24,7 +24,7 @@ CREATE TABLE user(
     phone VARCHAR(20) NOT NULL,
     address VARCHAR(20) NOT NULL,
     PRIMARY KEY (id)
-    
+
 
 );
 
@@ -46,6 +46,6 @@ CREATE TABLE roomBooking(
     PRIMARY KEY(id),
     FOREIGN KEY(bookingId) REFERENCES booking(id),
     FOREIGN KEY(roomId) REFERENCES room(id)
-    
+
 
 );
