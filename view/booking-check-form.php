@@ -3,9 +3,10 @@
 <?php require 'components/nav.php'; ?>
 
 <body>
+
   <div class="formsection  templete clear">
 
-    <h2 >Check in/out Information</h2>
+    <h2 >Availabe Room: </h2>
     <form method="get" action="/view/booking-check-form.php">
       <table class="guestinfo">
             <tr >
@@ -21,7 +22,7 @@
             </tr>
             <tr>
                 <td></td>
-                <td > <a href="bookingconfirmation.php"> <button type="submit"> Submit </button> </a></td>
+                <td > <a href="/view/bookingconfirmation.php"> <button type="submit"> Next </button> </a></td>
             </tr>
 
       </table>
