@@ -48,7 +48,7 @@
               <p>Price</p>
             </div>
             <div class="nr-rooms">
-              <a href="/view/bookingform.php"><button type="submit">Book Now</button> </a>
+              <a href="/view/booking-check-form.php"><button type="submit">Book Now</button> </a>
             </div>
         </div>
 
