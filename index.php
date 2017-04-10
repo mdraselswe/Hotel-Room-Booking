@@ -1,4 +1,12 @@
 <?php
 
+	require 'core/bootstrap.php';
 
-    require 'view/home.php';
+    // $date = $pdo->prepare("SELECT * FROM roomCategory");
+    // $date->execute();
+    //
+    // dd($date->fetchAll());
+
+
+
+    require 'controller/home.controller.php';
