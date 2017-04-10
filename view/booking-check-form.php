@@ -7,7 +7,7 @@
   <div class="formsection  templete clear">
 
     <h2 >Availabe Room: </h2>
-    <form method="get" action="/view/booking-check-form.php">
+    <form method="get" action="/booking-check-form">
       <table class="guestinfo">
             <tr >
                 <td>Check In: </td>
@@ -17,12 +17,12 @@
             </tr>
             <tr>
                 <td>Check Out: </td>
-                <td>  <input type="text" name="checkin" placeholder="Chack Out Date"></td>
+                <td>  <input type="text" name="checkout" placeholder="Chack Out Date"></td>
 
             </tr>
             <tr>
                 <td></td>
-                <td > <a href="/view/bookingconfirmation.php"> <button type="submit"> Next </button> </a></td>
+                <td ><button type="submit"> Next </button> </td>
             </tr>
 
       </table>
@@ -30,31 +30,30 @@
 
 
 
-
-
   <h2 >Room Information</h2>
-  <form>
+  <form action="/booking-user-form" method="post">
     <table class="guestinfo">
           <tr >
               <td>Room Type: </td>
-              <td>Delux</td>
+              <td><?= $roomCategory[0]['roomType'] ?></td>
+
+              <td><?= $roomCategory[0]['price'] ?></td>
 
               <td>
                 <select class="" name="room_quantity">
-                  <<option value="">1</option>
-                  <<option value="">2</option>
-                  <<option value="">3</option>
+                  <?php $count = 1; ?>
+                  <?php while ($count <= $totalRoom): ?>
+                    <option value="<?= $count ?>"><?= $count ?></option>
+                    <?php $count ++ ?>
+                  <?php endwhile ?>
                 </select>
               </td>
-
-              <td>Price 500/room</td>
           </tr>
-
 
 
           <tr>
               <td></td>
-              <td > <a href="bookingconfirmation.php"> <button type="submit"> Submit </button> </a></td>
+              <td > <button type="submit"> Submit </button> </td>
           </tr>
 
     </table>

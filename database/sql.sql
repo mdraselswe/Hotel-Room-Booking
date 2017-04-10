@@ -16,7 +16,7 @@ CREATE TABLE room(
 
 );
 
-CREATE TABLE user(
+CREATE TABLE customer(
 	id INT NOT NULL AUTO_INCREMENT,
     fname VARCHAR(20)  NOT NULL,
     lname VARCHAR(20) NOT NULL,
@@ -49,3 +49,17 @@ CREATE TABLE roomBooking(
 
 
 );
+
+CREATE VIEW roo AS
+SELECT roomBooking.roomId, roomBooking.bookingId, booking.*
+    FROM roomBooking
+	JOIN booking
+	ON roomBooking.bookingId = booking.id;
+    where roomId not In
+    (
+        SELEct roomId from roo
+        where
+            (CheckIn BETWEEN '2017-04-10' and '2017-04-13')
+            OR
+            (CheckOut BETWEEN '2017-04-10' and '2017-04-13')
+    )

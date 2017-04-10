@@ -42,8 +42,8 @@
                 <p><?= $room['price']; ?></p>
             </div>
 
-            <form class="nr-rooms" action="/controller/booking-check-form.controller.php" method="post">
-                <input type="hidden" value="<?= $room['id']; ?>" name="roomId">
+            <form class="nr-rooms" action="/booking-check-form" method="post">
+                <input type="hidden" value="<?= $room['id']; ?>" name="categoryId">
                 <button type="submit">Confirm</button>
             </form>
         </div>

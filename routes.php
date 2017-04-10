@@ -1,6 +1,10 @@
 <?php
 
     $router->get('', 'controller/home.controller.php');
+    $router->get('booking-check-form', 'controller/booking-check-form.controller.php');
+    $router->post('booking-check-form', 'controller/booking-check-form.controller.php');
+    $router->post('booking-user-form', 'view/booking-user-form.php');
+    $router->get('test', 'controller/test.php');
     // $router->get('rent', 'controller/rent.php');
     // $router->get('rent-form', 'controller/rent-form.php');
     // $router->get('test', 'controller/test.php');
