@@ -42,9 +42,10 @@
                 <p><?= $room['price']; ?></p>
             </div>
 
-            <div class="nr-rooms">
-                <a href="/view/booking-check-form.php"><button type="submit">Confirm</button></a>
-            </div>
+            <form class="nr-rooms" action="/booking-check-form" method="post">
+                <input type="hidden" value="<?= $room['id']; ?>" name="categoryId">
+                <button type="submit">Confirm</button>
+            </form>
         </div>
       <?php endforeach ?>
 

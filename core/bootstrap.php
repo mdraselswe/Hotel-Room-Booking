@@ -4,6 +4,8 @@
     $config = require 'config.php';
     require 'database/connection.php';
     require 'function.php';
+    require 'core/request.php';
+    require 'core/router.php';
 
     $pdo = Connection::make($config['database']);
 

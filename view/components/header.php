@@ -23,4 +23,3 @@
           <a href="https://plus.google.com/"><img src="/assets/images/Social/googleplus" alt="GooglePlus"></a>
         </div>
   </div>
-</body>
