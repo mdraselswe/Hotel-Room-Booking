@@ -16,6 +16,9 @@ session_start();
 	$id = $_SESSION['categoryId'];
 	$checkIn = $_SESSION['checkIn'];
 	$checkOut = $_SESSION['checkOut'];
+	$roomNo = $_SESSION['roomNo'];
+
+	// dd($roomNo);
 
 
 	// Insert into Customer Table
@@ -62,5 +65,38 @@ session_start();
 	]);
 
 
+
+
+	// Get total vacent room id
+	if (empty($roomNo)) {
+		$roomNo[] = 0;
+	}
+	$inQuery = implode(',', array_fill(0, count($roomNo), '?'));
+	$vacantRoom = $pdo->prepare('SELECT id
+									FROM room
+									WHERE categoryId = ?
+									AND
+									id NOT IN (' . $inQuery . ')
+								');
+
+	$vacantRoom->bindParam(1, $id, PDO::PARAM_INT);
+	foreach ($roomNo as $key => $value) {
+		$vacantRoom->bindValue(($key+2), $value);
+	}
+	$vacantRoom->execute();
+	$vacantRoom = $vacantRoom->fetchAll();
+
+
+	// Insert into roomBooking Table
+	$insertRoomBooking = $pdo->prepare('insert into roomBooking (bookingId, roomId)
+				values (:bookingId, :roomId)');
+	$count = 0;
+	while ($count < $totalRoom) {
+		$insertRoomBooking->execute([
+			'bookingId' => $bookingId,
+			'roomId' => $vacantRoom[$count]['id']
+		]);
+		$count ++;
+	}
 
 	require 'view/booking-confirmation.php';

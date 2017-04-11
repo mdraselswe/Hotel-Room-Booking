@@ -1,19 +1,56 @@
 <?php
 
-$email = 'rasel@gmail.com';
+session_start();
 
-// Get Inserted Customer ID:
-$customerId = $pdo->prepare('SELECT id from customer WHERE email = :email');
-$customerId->execute(['email' => $email]);
-$customerId = $customerId->fetchAll();
-$customerId = $customerId[0]['id'];
+$checkIn =$_SESSION['checkIn'];
+$checkOut = $_SESSION['checkOut'];
 
-// echo $customerId;
 
-// Got Inserted Booking ID:
-$bookingId = $pdo->prepare('SELECT id from booking WHERE userId = :customerId');
-$bookingId->execute(['customerId' => $customerId]);
-$bookingId = $bookingId->fetchAll();
-$bookingId = $bookingId[0]['id'];
 
-echo $bookingId;
+// Get the room id that is  booked in request date
+$totalRoom = $pdo->prepare('SELECT roomBooking.roomId
+                FROM roomBooking
+                JOIN booking
+                ON roomBooking.bookingId = booking.id
+                WHERE roomId IN
+                (
+                    SELECT roomId FROM roo
+                    where
+                        (checkIn BETWEEN :checkIn AND :checkOut)
+                                    OR
+                        (checkOut BETWEEN :checkIn AND :checkOut)
+                )
+
+');
+$totalRoom->bindParam(':checkIn', $checkIn, PDO::PARAM_STR);
+$totalRoom->bindParam(':checkOut', $checkOut, PDO::PARAM_STR);
+$totalRoom->execute();
+$results = $totalRoom->fetchAll(PDO::FETCH_ASSOC);
+
+$roomNo = [];
+foreach ($results as $result) {
+$roomNo[] = $result['roomId'];
+}
+$inQuery = implode(',', array_fill(0, count($roomNo), '?'));
+
+$_SESSION['roomNo'] = $roomNo;
+
+
+// Get total vacent room
+if(!empty($roomNo)) {
+    $totalRoom = $pdo->prepare('SELECT COUNT(*)
+            FROM room
+            WHERE categoryId = ?
+            AND
+            id NOT IN (' . $inQuery . ')
+        ');
+
+    $totalRoom->bindParam(1, $id, PDO::PARAM_INT);
+    foreach ($roomNo as $key => $value) {
+    $totalRoom->bindValue(($key+2), $value);
+    }
+
+    $totalRoom->execute();
+    $totalRoom = $totalRoom->fetchAll();
+    $totalRoom = $totalRoom[0]['COUNT(*)'];
+}

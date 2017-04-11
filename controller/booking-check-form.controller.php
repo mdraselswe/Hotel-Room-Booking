@@ -41,6 +41,8 @@ session_start();
         $results = $totalRoom->fetchAll(PDO::FETCH_ASSOC);
 
 
+
+
         // Making roomid a simple array
         $roomNo = [];
         foreach ($results as $result) {
@@ -48,28 +50,46 @@ session_start();
         }
         $inQuery = implode(',', array_fill(0, count($roomNo), '?'));
 
+		$_SESSION['roomNo'] = $roomNo;
+
 
         // Get total vacent room
-        $totalRoom = $pdo->prepare('SELECT COUNT(*)
-                                        FROM room
-                                        WHERE categoryId = ?
-                                        AND
-                                        id NOT IN (' . $inQuery . ')
-                                    ');
+        if(!empty($roomNo)) {
+            $totalRoom = $pdo->prepare('SELECT COUNT(*)
+                    FROM room
+                    WHERE categoryId = ?
+                    AND
+                    id NOT IN (' . $inQuery . ')
+                ');
 
-        $totalRoom->bindParam(1, $id, PDO::PARAM_INT);
-        foreach ($roomNo as $key => $value) {
+            $totalRoom->bindParam(1, $id, PDO::PARAM_INT);
+            foreach ($roomNo as $key => $value) {
             $totalRoom->bindValue(($key+2), $value);
+            }
+
+            $totalRoom->execute();
+            $totalRoom = $totalRoom->fetchAll();
+            $totalRoom = $totalRoom[0]['COUNT(*)'];
         }
 
-        $totalRoom->execute();
-        $totalRoom = $totalRoom->fetchAll();
-        $totalRoom = $totalRoom[0]['COUNT(*)'];
 
+        //For First Database Entry set total room no:
+        if (empty($roomNo)) {
+            if ($id == 1) {
+                $totalRoom = 5;
+            } elseif ($id == 2) {
+                $totalRoom = 3;
+            } else {
+                $totalRoom = 2;
+            }
+        }
+        
         // Get Room Category, Price
         $roomCategory = $pdo->prepare('SELECT * FROM roomCategory WHERE id = :id');
         $roomCategory->execute(['id' => $id]);
         $roomCategory = $roomCategory->fetchAll(PDO::FETCH_ASSOC);
+
+
 
     }
 
