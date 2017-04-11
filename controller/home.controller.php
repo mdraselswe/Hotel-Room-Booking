@@ -1,5 +1,8 @@
 <?php
 
+if (isset($_SESSION)) {
+	session_destroy();
+ }
 
     $date = $pdo->prepare("SELECT * FROM roomCategory ORDER By price");
     $date->execute();

@@ -1,39 +1,19 @@
 <?php
 
+$email = 'rasel@gmail.com';
 
-    $roomCategory = $pdo->prepare('SELECT *
-                                    FROM room
-                                    WHERE categoryId = :id
-                                    AND
-                                    id NOT IN () 
-                                ');
-    $roomCategory->execute(['id' => 2]);
-    $roomCategory = $roomCategory->fetchAll(PDO::FETCH_ASSOC);
+// Get Inserted Customer ID:
+$customerId = $pdo->prepare('SELECT id from customer WHERE email = :email');
+$customerId->execute(['email' => $email]);
+$customerId = $customerId->fetchAll();
+$customerId = $customerId[0]['id'];
 
-    dd($roomCategory);
+// echo $customerId;
 
+// Got Inserted Booking ID:
+$bookingId = $pdo->prepare('SELECT id from booking WHERE userId = :customerId');
+$bookingId->execute(['customerId' => $customerId]);
+$bookingId = $bookingId->fetchAll();
+$bookingId = $bookingId[0]['id'];
 
-
-
-
-
-	// $checkIn = '2017-04-10';
-	// $checkOut = '2017-04-13';
-	//
-	// $pdo = $pdo->prepare('SELECT roomBooking.roomId FROM roomBooking
-	// 				JOIN booking
-	// 				ON roomBooking.bookingId = booking.id
-	// 				WHERE roomId NOT IN
-	// 			    (
-	// 			        SELECT roomId FROM roo
-	// 			        where
-	// 			            (checkIn BETWEEN :checkIn AND :checkOut)
-	// 			            OR
-	// 			            (checkOut BETWEEN :checkIn AND :checkOut)
-	// 			    )
-	//
-	// ');
-	// $pdo->bindParam(':checkIn', $checkIn, PDO::PARAM_STR);
-	// $pdo->bindParam(':checkOut', $checkOut, PDO::PARAM_STR);
-	// $pdo->execute();
-	// dd($pdo->fetchAll());
+echo $bookingId;

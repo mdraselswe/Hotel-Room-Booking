@@ -9,7 +9,7 @@
     <h2 >Availabe Room: </h2>
     <form method="get" action="/booking-check-form">
       <table class="guestinfo">
-            <tr >
+            <tr>
                 <td>Check In: </td>
                 <td>
                     <input type="text" name="checkin" placeholder="Chack In Date">
@@ -33,18 +33,25 @@
   <h2 >Room Information</h2>
   <form action="/booking-user-form" method="post">
     <table class="guestinfo">
-          <tr >
+          <tr>
               <td>Room Type: </td>
-              <td><?= $roomCategory[0]['roomType'] ?></td>
-
-              <td><?= $roomCategory[0]['price'] ?></td>
+              <td>
+                <?= $roomCategory[0]['roomType'] ?>
+                <input type="hidden" name="roomCategory" value="<?= $roomCategory[0]['roomType'] ?>">
+              </td>
 
               <td>
-                <select class="" name="room_quantity">
+                <?= $roomCategory[0]['price'] ?>
+                <input type="hidden" name="price" value="<?= $roomCategory[0]['price'] ?>">
+              </td>
+
+
+              <td>
+                <select name="roomQuantity">
                   <?php $count = 1; ?>
                   <?php while ($count <= $totalRoom): ?>
-                    <option value="<?= $count ?>"><?= $count ?></option>
-                    <?php $count ++ ?>
+                      <option value="<?= $count ?>"><?= $count ?></option>
+                      <?php $count ++ ?>
                   <?php endwhile ?>
                 </select>
               </td>
@@ -53,7 +60,7 @@
 
           <tr>
               <td></td>
-              <td > <button type="submit"> Submit </button> </td>
+              <td> <button type="submit"> Submit </button> </td>
           </tr>
 
     </table>

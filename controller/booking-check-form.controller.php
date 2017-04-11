@@ -1,19 +1,24 @@
 <?php
 
+session_start();
 // Date Format : 2017-04-04
 
     // if REQUEST_METHOD Post then save the Room ID
     if ($_SERVER['REQUEST_METHOD'] == POST) {
         $id = $_POST['categoryId'];
-        setcookie('id', $id, time() + (86400 * 30), "/");
+        $_SESSION['categoryId'] = $id;
     }
 
 
     if ($_SERVER['REQUEST_METHOD'] == GET) {
-        $id = $_COOKIE[id];
-        setcookie("id", "", time() - 3600);
+        $id = $_SESSION['categoryId'];
         $checkIn = $_GET['checkin'];
         $checkOut = $_GET['checkout'];
+
+		//Saved In session
+        $_SESSION['checkIn'] = $checkIn;
+        $_SESSION['checkOut'] = $checkOut;
+
 
         // Get the room id that is  booked in request date
         $totalRoom = $pdo->prepare('SELECT roomBooking.roomId

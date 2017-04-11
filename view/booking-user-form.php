@@ -6,7 +6,25 @@
 
   <div class="formsection  templete clear">
     <h2 >Guest Information</h2>
-      <form method="GET" action="/view/booking-confirmmation.php">
+      <form method="post" action="booking-confirmmation">
+        <table>
+          <tr>
+    	      <td>Category</td>
+    	      <td>Price/Room</td>
+    	      <td>Total Room</td>
+    	      <td>Total Price</td>
+    	    </tr>
+    	    <tr>
+    	      <td><?= $roomCategory; ?></td>
+            <input type="hidden" name="roomCategory" value="<?= $roomCategory ?>">
+    	      <td><?= $price; ?></td>
+            <input type="hidden" name="price" value="<?= $price ?>">
+    	      <td><?= $totalRoom; ?></td>
+            <input type="hidden" name="totalRoom" value="<?= $totalRoom ?>">
+    	      <td><?= $totalPrice; ?></td>
+            <input type="hidden" name="totalPrice" value="<?= $totalPrice ?>">
+    	    </tr>
+    	  </table>
         <table class="guestinfo">
               <tr >
                   <td>First Name: </td>
@@ -26,7 +44,7 @@
               </tr>
               <tr>
                   <td>Address: </td>
-                  <td > <textarea placeholder="Address.."></textarea> </td>
+                  <td > <textarea placeholder="Address.." name="address"></textarea> </td>
               </tr>
               <tr>
                   <td>Payment type: </td>
