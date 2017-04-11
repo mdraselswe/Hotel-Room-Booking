@@ -1,21 +1,26 @@
 <?php
 
+session_start();
 // Date Format : 2017-04-04
 
     // if REQUEST_METHOD Post then save the Room ID
     if ($_SERVER['REQUEST_METHOD'] == POST) {
         $id = $_POST['categoryId'];
-        setcookie('id', $id, time() + (86400 * 30), "/");
+        $_SESSION['categoryId'] = $id;
     }
 
 
     if ($_SERVER['REQUEST_METHOD'] == GET) {
-        $id = $_COOKIE[id];
-        setcookie("id", "", time() - 3600);
+        $id = $_SESSION['categoryId'];
         $checkIn = $_GET['checkin'];
         $checkOut = $_GET['checkout'];
 
-        // Get the room id that is not booked in request date
+		//Saved In session
+        $_SESSION['checkIn'] = $checkIn;
+        $_SESSION['checkOut'] = $checkOut;
+
+
+        // Get the room id that is  booked in request date
         $totalRoom = $pdo->prepare('SELECT roomBooking.roomId
                         FROM roomBooking
     					JOIN booking
@@ -35,45 +40,57 @@
     	$totalRoom->execute();
         $results = $totalRoom->fetchAll(PDO::FETCH_ASSOC);
 
-        $roomNo = [];
 
+
+
+        // Making roomid a simple array
+        $roomNo = [];
         foreach ($results as $result) {
             $roomNo[] = $result['roomId'];
         }
+        $inQuery = implode(',', array_fill(0, count($roomNo), '?'));
 
-        $roomNo = implode(',', $roomNo);
+		$_SESSION['roomNo'] = $roomNo;
 
-
-        // $in = join(',', array_fill(0, count($roomNo), '?'));
-
-        // dd($in);
 
         // Get total vacent room
-        $totalRoom = $pdo->prepare('SELECT COUNT(*)
-                                        FROM room
-                                        WHERE categoryId = :id
-                                        AND
-                                        id NOT IN (:roomArray)
-                                    ');
+        if(!empty($roomNo)) {
+            $totalRoom = $pdo->prepare('SELECT COUNT(*)
+                    FROM room
+                    WHERE categoryId = ?
+                    AND
+                    id NOT IN (' . $inQuery . ')
+                ');
+
+            $totalRoom->bindParam(1, $id, PDO::PARAM_INT);
+            foreach ($roomNo as $key => $value) {
+            $totalRoom->bindValue(($key+2), $value);
+            }
+
+            $totalRoom->execute();
+            $totalRoom = $totalRoom->fetchAll();
+            $totalRoom = $totalRoom[0]['COUNT(*)'];
+        }
 
 
-        $totalRoom->execute(['id' => $id, 'roomArray' => $roomNo]);
-        $totalRoom = $totalRoom->fetchAll();
-        $totalRoom = $totalRoom[0]['COUNT(*)'];
-
+        //For First Database Entry set total room no:
+        if (empty($roomNo)) {
+            if ($id == 1) {
+                $totalRoom = 5;
+            } elseif ($id == 2) {
+                $totalRoom = 3;
+            } else {
+                $totalRoom = 2;
+            }
+        }
+        
         // Get Room Category, Price
         $roomCategory = $pdo->prepare('SELECT * FROM roomCategory WHERE id = :id');
         $roomCategory->execute(['id' => $id]);
         $roomCategory = $roomCategory->fetchAll(PDO::FETCH_ASSOC);
 
-        // dd($totalRoom);
-
 
 
     }
-
-
-
-
 
     require 'view/booking-check-form.php';
