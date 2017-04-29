@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/assets/css/nivo-slider.css" type="text/css" media="screen" />
     <!-- <link rel="stylesheet" href="/assets/css/semantic-calender.css" type="text/css" media="screen" /> -->
 </head>
-<body>
+
   <div class="headersection templete clear">
         <div class="logo">
           <img src="/assets/images/icon-hotel.png" alt="Logo">

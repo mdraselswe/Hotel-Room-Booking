@@ -5,26 +5,27 @@
 <body>
 
   <div class="formsection  templete clear">
-    <h2 >Guest Information</h2>
       <form method="post" action="booking-confirmmation">
-        <table>
+        <h2 >Booking Information</h2>
+        <table class="bookinfo">
           <tr>
-    	      <td>Category</td>
-    	      <td>Price/Room</td>
-    	      <td>Total Room</td>
-    	      <td>Total Price</td>
+    	      <th>Room Type</th>
+    	      <th>Price per Room</th>
+    	      <th>No. of Room</th>
+    	      <th>Total Price</th>
     	    </tr>
     	    <tr>
     	      <td><?= $roomCategory; ?></td>
             <input type="hidden" name="roomCategory" value="<?= $roomCategory ?>">
-    	      <td><?= $price; ?></td>
+    	      <td><?= $price; ?> BDT</td>
             <input type="hidden" name="price" value="<?= $price ?>">
     	      <td><?= $totalRoom; ?></td>
             <input type="hidden" name="totalRoom" value="<?= $totalRoom ?>">
-    	      <td><?= $totalPrice; ?></td>
+    	      <td><?= $totalPrice; ?> BDT</td>
             <input type="hidden" name="totalPrice" value="<?= $totalPrice ?>">
     	    </tr>
     	  </table>
+        <h2 >Guest Information</h2>
         <table class="guestinfo">
               <tr >
                   <td>First Name: </td>

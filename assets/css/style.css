@@ -209,7 +209,7 @@ booking-user-form.php start
 */
 
 .formsection {
-	height: 550px;
+	height: 700px;
 	background: rgb(172, 172, 117);
 	margin-bottom: 10px;
 }
@@ -243,6 +243,78 @@ textarea {
 	height: 150px;
 	border: 1px solid #000;
 }
+.bookinfo{
+ margin: 10px 0 0 60px;
+ padding: 10px 10px 0;
+}
+.bookinfo tr{
+
+}
+.bookinfo tr td{
+  padding: 10px;
+  font-size: 15px;
+  text-align: center;
+
+
+
+}
+.bookinfo tr th{
+  border-bottom: 2px solid;
+    color: rgb(48, 10, 36);
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+}
+/*booking-check-form*/
+
+.roomBookingSection{
+  height: 500px;
+  background: rgb(172, 172, 117);
+  margin-bottom: 10px;
+}
+.roomBookingSection h2{
+  font-size: 25px;
+  margin: 10px;
+  padding: 5px;
+  color: rgb(99, 0, 104);
+  text-shadow: 2px 2px 3px #fff;
+}
+.roomAvailableSection{
+  margin: 10px 0px 0px 60px;
+  padding: 10px 0px 0px 10px;
+}
+.roomAvailableSection tr{
+
+}
+.roomAvailableSection tr th{
+
+}
+.roomAvailableSection tr td{
+  padding: 10px;
+  font-weight: bold;
+  font-size: 15px;
+}
+.roomAvailableSection tr td input{
+  height: 25px;
+	width: 385px;
+	border: 1px solid #000;
+}
+.roomInfoSection{
+  margin: 10px 0 0 60px;
+  padding: 10px 10px 0;
+}
+.roomInfoSection tr{
+
+}
+.roomInfoSection tr th{
+
+}
+.roomInfoSection tr td{
+  padding: 10px;
+  font-size: 15px;
+  text-align: center;
+}
+
 
 /*
 booking-confirmation.php start
@@ -434,4 +506,32 @@ service.php start*/
   height: 25px;
   width: 385px;
   border: 1px solid #000;
+}
+
+/* admin-search.php*/
+
+.searchCustomer{
+  height: 500px;
+  background: rgb(172, 172, 117);
+  margin-bottom: 10px;
+}
+.searchCustomer h2{
+  font-size: 25px;
+  margin: 10px;
+  padding: 5px;
+  color: rgb(99, 0, 104);
+  text-shadow: 2px 2px 3px #fff;
+}
+.search{
+  line-height: 45px;
+  margin: 10px;
+  padding: 10px;
+}
+.search tr td{
+  font-weight: bold;
+  padding-left: 30px;
+}
+.search tr td input{
+  height: 50px;
+  width: 845px;
 }
